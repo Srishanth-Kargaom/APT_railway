@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimal Ticketing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: #6200ea;
+            color: #fff;
+            padding: 1.5em 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            margin: 0.5em 0 0;
+            font-size: 1.2em;
+        }
+        section {
+            padding: 2em;
+            max-width: 800px;
+            margin: auto;
+        }
+        h2 {
+            color: #6200ea;
+            margin-bottom: 0.5em;
+        }
+        .table-container {
+            margin-top: 2em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1em 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 0.8em;
+            text-align: center;
+        }
+        th {
+            background-color: #300768;
+            color: #fff;
+        }
+        form {
+            margin-top: 2em;
+        }
+        form label, form select, form button {
+            display: block;
+            margin: 1em 0;
+        }
+        form button {
+            padding: 0.8em 1.5em;
+            background-color: #6200ea;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #3700b3;
+        }
+        .result {
+            margin-top: 2em;
+            padding: 1em;
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Optimal Ticketing</h1>
+        <p>A product of APT (AI Planned Trips)</p>
+    </header>
+
+    <section>
+        <h2>Guaranteed Seat Assistance</h2>
+        <p>In Indian Railways, if a ticket is unavailable between your boarding and destination stations for a train, you have two alternative methods to book your ticket, since the availability of tickets depends on boarding and destination points:</p>
+        <ul>
+            <li><b>Type-1:</b>It generates a list of all possible routes with extended boarding and destination stations in ascending order of distance, where you can check availability.</li>
+            <li><b>Type-2:</b>It offers a breakdown version where you may need to book two or more tickets to secure confirmed tickets. It generates all possible routes with extended boarding and destination stations, including intermediate stations, in ascending order of distance.</li>
+        </ul>
+        <p>This website uses the Type-1 algorithm to help users book confirmed train tickets at optimal costs. It is limited to train 20804 as it uses distances between each station.</p>
+
+        <h2>This Website Features and Benefits</h2>
+        <p>This website uses the type-1 algorithm to help users book confirmed train tickets at optimal costs. It surpasses existing third-party ticketing solutions in efficiency, cost-effectiveness, and reliability. This website is limited to train 20804, as this algorithm uses distances between each station.</p>
+        <h2>How to Use this wesite for other trains</h2>
+        
+        <p>In order to find availability for other trains, simply replace your stations and their distances in the code which you can access in my GitHub account link <a href="https://github.com/Srishanth-Kargaom/best_cost_efficient_ticketing_algo">click to open github here</a>
+        </p>
+
+        <div class="table-container">
+            <h2>Station Table</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S. No</th>
+                        <th>Station Name & Code</th>
+                        <th>Distance (km)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>GANDHIDHAM BG - GIMB</td><td>0</td></tr>
+                    <tr><td>2</td><td>BHACHAU BG - BCOB</td><td>38</td></tr>
+                    <tr><td>3</td><td>SAMAKHIALI B G - SIOB</td><td>53</td></tr>
+                    <tr><td>4</td><td>DHRANGDHRA - DHG</td><td>170</td></tr>
+                    <tr><td>5</td><td>VIRAMGAM JN - VG</td><td>235</td></tr>
+                    <tr><td>6</td><td>AHMEDABAD JN - ADI</td><td>300</td></tr>
+                    <tr><td>7</td><td>ANAND JN - ANND</td><td>364</td></tr>
+                    <tr><td>8</td><td>VADODARA JN - BRC</td><td>400</td></tr>
+                    <tr><td>9</td><td>ANKLESHWAR JN - AKV</td><td>479</td></tr>
+                    <tr><td>10</td><td>UDHNA JN - UDN</td><td>533</td></tr>
+                    <tr><td>11</td><td>NANDURBAR - NDB</td><td>689</td></tr>
+                    <tr><td>12</td><td>JALGAON JN - JL</td><td>840</td></tr>
+                    <tr><td>13</td><td>BHUSAVAL JN - BSL</td><td>864</td></tr>
+                    <tr><td>14</td><td>MALKAPUR - MKU</td><td>914</td></tr>
+                    <tr><td>15</td><td>AKOLA JN - AK</td><td>1004</td></tr>
+                    <tr><td>16</td><td>BADNERA JN - BD</td><td>1082</td></tr>
+                    <tr><td>17</td><td>WARDHA JN - WR</td><td>1178</td></tr>
+                    <tr><td>18</td><td>CHANDRAPUR - CD</td><td>1296</td></tr>
+                    <tr><td>19</td><td>BALHARSHAH - BPQ</td><td>1310</td></tr>
+                    <tr><td>20</td><td>SIRPUR KAGAZNGR - SKZR</td><td>1380</td></tr>
+                    <tr><td>21</td><td>RAMAGUNDAM - RDM</td><td>1452</td></tr>
+                    <tr><td>22</td><td>WARANGAL - WL</td><td>1553</td></tr>
+                    <tr><td>23</td><td>KHAMMAM - KMT</td><td>1660</td></tr>
+                    <tr><td>24</td><td>VIJAYAWADA JN - BZA</td><td>1760</td></tr>
+                    <tr><td>25</td><td>ELURU - EE</td><td>1819</td></tr>
+                    <tr><td>26</td><td>RAJAHMUNDRY - RJY</td><td>1909</td></tr>
+                    <tr><td>27</td><td>SAMALKOT JN - SLO</td><td>1959</td></tr>
+                    <tr><td>28</td><td>DUVVADA - DVD</td><td>2092</td></tr>
+                    <tr><td>29</td><td>VISAKHAPATNAM - VSKP</td><td>2110</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <form id="ticket-form">
+            <label for="boarding">Select Boarding Station:</label>
+            <select id="boarding">
+                <option value="1">GANDHIDHAM BG - GIMB</option>
+                <option value="2">BHACHAU BG - BCOB</option>
+                <option value="3">SAMAKHIALI B G - SIOB</option>
+                <option value="4">DHRANGDHRA - DHG</option>
+                <option value="5">VIRAMGAM JN - VG</option>
+                <option value="6">AHMEDABAD JN - ADI</option>
+                <option value="7">ANAND JN - ANND</option>
+                <option value="8">VADODARA JN - BRC</option>
+                <option value="9">ANKLESHWAR JN - AKV</option>
+                <option value="10">UDHNA JN - UDN</option>
+                <option value="11">NANDURBAR - NDB</option>
+                <option value="12">JALGAON JN - JL</option>
+                <option value="13">BHUSAVAL JN - BSL</option>
+                <option value="14">MALKAPUR - MKU</option>
+                <option value="15">AKOLA JN - AK</option>
+                <option value="16">BADNERA JN - BD</option>
+                <option value="17">WARDHA JN - WR</option>
+                <option value="18">CHANDRAPUR - CD</option>
+                <option value="19">BALHARSHAH - BPQ</option>
+                <option value="20">SIRPUR KAGAZNGR - SKZR</option>
+                <option value="21">RAMAGUNDAM - RDM</option>
+                <option value="22">WARANGAL - WL</option>
+                <option value="23">KHAMMAM - KMT</option>
+                <option value="24">VIJAYAWADA JN - BZA</option>
+                <option value="25">ELURU - EE</option>
+                <option value="26">RAJAHMUNDRY - RJY</option>
+                <option value="27">SAMALKOT JN - SLO</option>
+                <option value="28">DUVVADA - DVD</option>
+                <option value="29">VISAKHAPATNAM - VSKP</option>
+            </select>
+
+            <label for="destination">Select Destination Station:</label>
+            <select id="destination">
+                <option value="1">GANDHIDHAM BG - GIMB</option>
+                <option value="2">BHACHAU BG - BCOB</option>
+                <option value="3">SAMAKHIALI B G - SIOB</option>
+                <option value="4">DHRANGDHRA - DHG</option>
+                <option value="5">VIRAMGAM JN - VG</option>
+                <option value="6">AHMEDABAD JN - ADI</option>
+                <option value="7">ANAND JN - ANND</option>
+                <option value="8">VADODARA JN - BRC</option>
+                <option value="9">ANKLESHWAR JN - AKV</option>
+                <option value="10">UDHNA JN - UDN</option>
+                <option value="11">NANDURBAR - NDB</option>
+                <option value="12">JALGAON JN - JL</option>
+                <option value="13">BHUSAVAL JN - BSL</option>
+                <option value="14">MALKAPUR - MKU</option>
+                <option value="15">AKOLA JN - AK</option>
+                <option value="16">BADNERA JN - BD</option>
+                <option value="17">WARDHA JN - WR</option>
+                <option value="18">CHANDRAPUR - CD</option>
+                <option value="19">BALHARSHAH - BPQ</option>
+                <option value="20">SIRPUR KAGAZNGR - SKZR</option>
+                <option value="21">RAMAGUNDAM - RDM</option>
+                <option value="22">WARANGAL - WL</option>
+                <option value="23">KHAMMAM - KMT</option>
+                <option value="24">VIJAYAWADA JN - BZA</option>
+                <option value="25">ELURU - EE</option>
+                <option value="26">RAJAHMUNDRY - RJY</option>
+                <option value="27">SAMALKOT JN - SLO</option>
+                <option value="28">DUVVADA - DVD</option>
+                <option value="29">VISAKHAPATNAM - VSKP</option>
+            </select>
+
+            <button type="button" onclick="findRoutes()">Find Routes</button>
+        </form>
+
+        <div id="result-section" class="result" style="display: none;">
+            <h3>Available Routes</h3>
+            <pre id="results"></pre>
+        </div>
+    </section>
+
+    <script>
+      function findRoutes() {
+        const stations = [
+            { id: 1, name: "GANDHIDHAM BG - GIMB", distance: 0 },
+            { id: 2, name: "BHACHAU BG - BCOB", distance: 38 },
+            { id: 3, name: "SAMAKHIALI B G - SIOB", distance: 53 },
+            { id: 4, name: "DHRANGDHRA - DHG", distance: 170 },
+            { id: 5, name: "VIRAMGAM JN - VG", distance: 235 },
+            { id: 6, name: "AHMEDABAD JN - ADI", distance: 300 },
+            { id: 7, name: "ANAND JN - ANND", distance: 364 },
+            { id: 8, name: "VADODARA JN - BRC", distance: 400 },
+            { id: 9, name: "ANKLESHWAR JN - AKV", distance: 479 },
+            { id: 10, name: "UDHNA JN - UDN", distance: 533 },
+            { id: 11, name: "NANDURBAR - NDB", distance: 689 },
+            { id: 12, name: "JALGAON JN - JL", distance: 840 },
+            { id: 13, name: "BHUSAVAL JN - BSL", distance: 864 },
+            { id: 14, name: "MALKAPUR - MKU", distance: 914 },
+            { id: 15, name: "AKOLA JN - AK", distance: 1004 },
+            { id: 16, name: "BADNERA JN - BD", distance: 1082 },
+            { id: 17, name: "WARDHA JN - WR", distance: 1178 },
+            { id: 18, name: "CHANDRAPUR - CD", distance: 1296 },
+            { id: 19, name: "BALHARSHAH - BPQ", distance: 1310 },
+            { id: 20, name: "SIRPUR KAGAZNGR - SKZR", distance: 1380 },
+            { id: 21, name: "RAMAGUNDAM - RDM", distance: 1452 },
+            { id: 22, name: "WARANGAL - WL", distance: 1553 },
+            { id: 23, name: "KHAMMAM - KMT", distance: 1660 },
+            { id: 24, name: "VIJAYAWADA JN - BZA", distance: 1760 },
+            { id: 25, name: "ELURU - EE", distance: 1819 },
+            { id: 26, name: "RAJAHMUNDRY - RJY", distance: 1909 },
+            { id: 27, name: "SAMALKOT JN - SLO", distance: 1959 },
+            { id: 28, name: "DUVVADA - DVD", distance: 2092 },
+            { id: 29, name: "VISAKHAPATNAM - VSKP", distance: 2110 },
+        ];
+    
+        const boardingId = parseInt(document.getElementById("boarding").value);
+        const destinationId = parseInt(document.getElementById("destination").value);
+    
+        if (boardingId >= destinationId) {
+            alert("Invalid route! Destination must be after boarding.");
+            return;
+        }
+    
+        const priorStations = stations.slice(0, boardingId);
+        const laterStations = stations.slice(destinationId - 1);
+        const possibleRoutes = [];
+    
+        priorStations.forEach((prior) => {
+            laterStations.forEach((later) => {
+                if (prior.id <= boardingId && later.id >= destinationId) {
+                    const totalDistance = later.distance - prior.distance;
+                    possibleRoutes.push({
+                        distance: totalDistance,
+                        route: `${prior.name} (${prior.distance} km) -> ... -> ${later.name} (${later.distance} km)`
+                    });
+                }
+            });
+        });
+    
+        // Sort possible routes by distance
+        possibleRoutes.sort((a, b) => a.distance - b.distance);
+    
+        // Display results
+        const resultSection = document.getElementById("result-section");
+        const resultDisplay = document.getElementById("results");
+    
+        resultDisplay.textContent = possibleRoutes
+            .map((route) => `Total Distance: ${route.distance} km\nRoute: ${route.route}`)
+            .join("\n\n");
+        resultSection.style.display = "block";
+    }
+    </script>
+</body>
+</html>
